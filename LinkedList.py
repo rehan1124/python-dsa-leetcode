@@ -57,8 +57,17 @@ class LinkedList:
 
         return True
 
-    def prepend(self):
-        pass
+    def prepend(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+            self.length += 1
+        else:
+            new_node.next = self.head
+            self.head = new_node
+            self.length += 1
+        return True
 
     def insert(self, index, value):
         pass
@@ -91,3 +100,10 @@ ll.pop()
 print(f"After 2nd pop: {ll}")
 ll.pop()
 print(f"After final pop: {ll}")
+print("Prepending nodes...")
+add_value = 1
+ll.prepend(add_value)
+print(f"After prepending {add_value}: {ll}")
+add_value = 11
+ll.prepend(add_value)
+print(f"After prepending {add_value}: {ll}")
