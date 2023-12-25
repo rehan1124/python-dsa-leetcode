@@ -36,6 +36,27 @@ class LinkedList:
         self.length += 1
         return True
 
+    def pop(self):
+        if self.length == 0:
+            return None
+
+        if self.length == 1:
+            self.tail = None
+            self.head = None
+            self.length -= 1
+            return True
+
+        pre = self.head
+        temp = self.head
+        while temp.next is not None:
+            pre = temp
+            temp = temp.next
+        self.tail = pre
+        self.tail.next = None
+        self.length -= 1
+
+        return True
+
     def prepend(self):
         pass
 
@@ -63,3 +84,10 @@ print("Adding new nodes...")
 ll.append(1)
 ll.append(2)
 print(f"After appending new nodes: {ll}")
+print("Removing all items from LL...")
+ll.pop()
+print(f"After 1st pop: {ll}")
+ll.pop()
+print(f"After 2nd pop: {ll}")
+ll.pop()
+print(f"After final pop: {ll}")
